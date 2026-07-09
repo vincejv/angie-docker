@@ -349,12 +349,10 @@ RUN \
   && cd /usr/src/zlib-ng \
   && ./configure --zlib-compat
 
-COPY ech-angie.patch /usr/src/nginx/ech-angie.patch
 RUN \
   echo "Building nginx ..." \
   && mkdir -p /var/run/nginx/ \
   && cd /usr/src/nginx \
-  && git apply "ech-angie.patch" \
   && ./configure \
     --with-cc-opt="$CC_OPT" \
     --with-ld-opt="$LD_OPT" \
